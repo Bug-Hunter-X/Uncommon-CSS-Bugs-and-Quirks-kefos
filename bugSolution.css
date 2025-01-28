@@ -1,0 +1,22 @@
+The `calc()` issue can be addressed by ensuring consistent units and setting a defined width on the parent element:
+
+```css
+.parent {
+  width: 500px; /* Define a width for the parent */
+}
+
+.element {
+  width: calc(100% - 50px);
+}
+```
+
+For `box-sizing`, carefully consider the impact of padding and borders on the element's total size.  Inspect and adjust accordingly. If you need precise control you can sometimes use `box-sizing: content-box;` and manually adjust for padding and border width in your width/height calculations.
+
+```css
+.element {
+  box-sizing: border-box;
+  /* ... other styles ... */
+  padding: 10px; /* Consider padding when setting width/height */
+  border: 5px solid black; /* Consider border when setting width/height */
+}
+```
